@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV FILE UPLOAD</title>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="mainHeader">
+            <form method="POST" action="/file/upload" enctype="multipart/form-data">
+                <input type="file" name="csvFile" accept=".csv" required />
+                <button type="Submit">Upload</button>
+            </form>
+            <a href="/" type="button" class="btnList" style="text-decoration: none;">Show All Files</a>
+        </div>
+
+        <!-- ERROR DIV IF ANY -->
+        <% if(locals.error){ %>
+        <div class="error">
+            <span><%= locals.error %></span>
+        </div>
+        <% } %>
+        <!-- END ERROR DIV -->
+
+        <!-- SHOW UPLOADED FILE LISTS -->
+        <% if(locals.fileLists){ %>
+        <div class="listOfFiles">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>uploaded At</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for(var i=0; i<locals.fileLists.length; i++){ %>
+                    <tr>
+                        <td><%= (i+1) %></td>
+                        <td><%= fileLists[i].originalFileName %></td>
+                        <td><%= fileLists[i].createdAt.toLocaleString() %></td>
+                        <td><a href="/file/<%= fileLists[i]._id %>"  type="button" class="btnList" style="text-decoration: none;">Get Details</a></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <% } %>
+        <!-- END OF UPLOADED FILE LISTS -->
+
+        <!-- DETAILS OF EACH FILE -->
+        <% if(locals.fileDetails){ %>
+        <div class="fileDetails">
+
+            <!-- SEARCHBOX FOR FILTER ROWS -->
+            <div class="filter">
+                <input type="text" placeholder="Search..." onkeyup="search(event)" />
+            </div>
+
+            <!-- FILTER INFO IF SEARCH FILTER IS APPLIED -->
+            <div class="filterInfo">Search Filter Applied</div>
+
+            <!-- TABLE TO SHOW DETAILS OF EACH FILE -->
+            <table>
+                <thead>
+                    <tr>
+                        <% for(var i=0; i<locals.fileDetails.keys.length; i++){ %>
+                        <th onclick="sort(event, '<%= i %>')"><%= fileDetails.keys[i] %></th>
+                        <% } %>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for(var i=0; i<locals.fileDetails.content.length; i++){ %>
+                    <tr>
+                        <% for(var j=0; j<locals.fileDetails.keys.length; j++){ %>
+                        <td><%= fileDetails.content[i][fileDetails.keys[j]] %></td>
+                        <% } %>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+
+            <!-- FILE NAME -->
+            <div class="filename">
+                <span>File :- <%= locals.fileDetails.name %></span>
+            </div>
+        </div>
+        <% } %>
+
+    </div>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+    <!-- JavaScript File -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

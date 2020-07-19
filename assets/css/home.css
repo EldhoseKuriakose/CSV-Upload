@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Body */
+body {
+    background: linear-gradient(to right, #757f9a, #d7dde8);
+}
+
+/* MAIN DIV */
+.mainDiv{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* MAIN HEADER */
+.mainDiv .mainHeader{
+    margin-top: 20px;
+    width: inherit;
+    min-height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FORM */
+.mainDiv .mainHeader form{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDiv .mainHeader form input{
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.mainDiv .mainHeader form button{
+    font-size: 1.1rem;
+    width: 50%;
+    background: darkslateblue;
+    color: white;
+    border: 0;
+    outline: 0;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.mainDiv .mainHeader form button:hover{
+    opacity: 0.7;
+}
+
+.mainDiv .mainHeader a{
+    font-size: 1.1rem;
+    width: 170px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: darkblue;
+    color: white;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.mainDiv .mainHeader a:hover {
+    opacity: 0.7;
+}
+
+/* ERROR */
+.error{
+    color: black;
+    font-size: 1.2rem;
+    background: #991111;
+    padding: 10px;
+}
+
+/* LIST OF FILES */
+.mainDiv .listOfFiles{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+/* LIST OF FILES TABLE */
+.mainDiv .listOfFiles table{
+    width: 90%;
+    border: 2px solid black;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.mainDiv .listOfFiles table th{
+    border: 2px solid black;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+.mainDiv .listOfFiles table td{
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+/* EACH FILE DETAILS */
+.mainDiv .fileDetails{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+/* FILTER */
+.mainDiv .fileDetails .filter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.mainDiv .fileDetails .filter input{
+    padding: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.mainDiv .fileDetails .filterInfo{
+    color: #3fec3f;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.mainDiv .fileDetails .filterInfo::before{
+    content: '--- ';
+    color: inherit;
+}
+
+.mainDiv .fileDetails .filterInfo::after{
+    content: ' ---';
+    color: inherit;
+}
+
+/* EACH FILE DETAILS TABLE */
+.mainDiv .fileDetails table{
+    width: 90%;
+    border: 2px solid black;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.mainDiv .fileDetails table thead .asc::after{
+    content: '(Asc)';
+}
+
+.mainDiv .fileDetails table thead .desc::after{
+    content: '(Desc)';
+}
+
+.mainDiv .fileDetails table th{
+    border: 2px solid black;
+    padding: 15px;
+    font-size: 1.3rem;
+}
+
+.mainDiv .fileDetails table td{
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.mainDiv .fileDetails .filename{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+p {
+    color: black;
+}
