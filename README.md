@@ -6,5 +6,5 @@ A web application to upload csv files a get the details as a table. Also we can 
 2. `npm install` - To install all dependencies 
 3. 'node index.js' or `npm start` - To start the server
 
-`GET` `/file/:id` - For getting file by id
-`POST` `/file/upload` - For uploading a file
+1. `GET` `/file/:id` - For getting file by id
+2. `POST` `/file/upload` - For uploading a file
